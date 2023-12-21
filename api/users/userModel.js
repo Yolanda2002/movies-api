@@ -18,7 +18,7 @@ UserSchema.statics.findByUserName = function (username) {
   return this.findOne({ username: username });
 };
 
-//包含预保存挂钩
+//包含预保存挂钩,加salt和hash
 UserSchema.pre('save', async function(next) {
   const saltRounds = 10; // You can adjust the number of salt rounds
   //const user = this;
